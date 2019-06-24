@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %} 
+
+<!-- <form method ="POST"> -->
+       
+<div class="row">
+        {% for order in order_list %}
+    
+<div class="col-sm-12 col-md-6 col-lg-4 p-b-50">
+    <!-- Block2 -->
+    <div class="block2">   
+       
+        <center>       
+        <div class="block2-txt p-t-20">                              
+            
+                {%if order.products.all.exists %}
+                
+                <b>User: {{ order.user }}</b><br>
+                <b>Products:{% for order in order.products.all %}{{ order }}<br/>{% endfor %}</b><br/>                  
+                <b>Ordering Date:{{ order.order_date }}</b><br/>
+                {% endif %}
+            
+        </div>        
+    </center>
+    </div>
+</div>
+<!-- </form> -->
+    {% endfor %}
+</div>
+{% endblock %}
+
+
